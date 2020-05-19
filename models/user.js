@@ -34,4 +34,4 @@ const userSchema = moongoose.Schema({
 
 const User = mongoose.model('User', userSchema);
 
-MSFIDOCredentialAssertion.exports = { User }
+module.exports = { User }
