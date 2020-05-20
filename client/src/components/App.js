@@ -1,20 +1,22 @@
 import React from 'react';
-import { Switch, Route} from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import About from "./about";
 import Home from "./home";
+import Login from "./RegisterLogin";
 
 
 function App() {
   return (
     <div>
       <Switch>
-        <Route path="/" component={Home} />
+        
         <Route path="/about" component={About} />
-
+        <Route path="/login" component={Login} />
+        <Route path="/"      component={Home} />
       </Switch>
     </div>
   );
 }
 
-console.log("Front end connected");
+
 export default App;

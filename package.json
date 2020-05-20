@@ -9,7 +9,7 @@
   },
   "scripts": {
     "frontend": "cd client && npm run start",
-    "backend": "node server/index.js", 
+    "backend": "node server/index.js",
     "dev": "concurrently \"npm run backend\" \"npm run frontend\""
   },
   "author": "Robert Fronczak",

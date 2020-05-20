@@ -7,9 +7,12 @@ const cookieParser =  require('cookie-parser');
 const { User } = require('./models/user');
 const { auth } = require("./middleware/auth")
 
+const DOMAIN_TLD = 'http://localhost:3000';
 
 
 const config = require('./config/key');
+
+const DOMAIN_TLD = 'http://localhost:3000';
 
 mongoose.connect(config.mongoURI, 
 { useNewUrlParser: true , useUnifiedTopology: true  } )
@@ -22,10 +25,18 @@ app.use(bodyParser.urlencoded({ extended : true}));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-app.get('/', (req,res) => {res.send('hello world') });
+//app.get('/', (req,res) => {res.send('hello world') });
+
+// this seems to stop the CORS error
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", DOMAIN_TLD); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 
-app.get("/api/usr/auth", auth, (req,res) => {
+
+app.get("/api/users/auth", auth, (req,res) => {
   res.status(200).json({
         _id: req.user._id,
         isAuth: true,
@@ -51,7 +62,10 @@ app.post("/api/users/register",  (req, res) => {
 
 
 
-app.post('/api/usr/login', (req, res) =>{
+app.post('/api/users/login', (req, res) =>{
+
+  
+  
 
   // find user
   User.findOne({ email: req.body.email }, (err, user) => {
@@ -83,7 +97,7 @@ app.post('/api/usr/login', (req, res) =>{
 })
 
 
-app.get("/api/usr/logout", auth, (req, res) => {
+app.get("/api/users/logout", auth, (req, res) => {
 
   User.findOneAndUpdate( {_id :req.user._id}, {token: ""}, (err, doc) => {
     if(err)  return res.json({success: false, err})

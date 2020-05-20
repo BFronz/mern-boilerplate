@@ -1,4 +1,6 @@
 import axios from 'axios';
+
+
 import {
     LOGIN_USER,
     REGISTER_USER,
@@ -7,7 +9,9 @@ import {
 } from './types';
 import { BACK_SERVER_URL, headersConfig } from '../components/Config.js';
 
+
 export function registerUser(dataToSubmit) {
+   
     const request = axios.post(`${BACK_SERVER_URL}/api/users/register`, dataToSubmit)
         .then(response => response.data);
 
