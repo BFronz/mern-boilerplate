@@ -8,8 +8,9 @@
     "npm": "6.14.5"
   },
   "scripts": {
-    "start": "node server/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "frontend": "cd client && npm run start",
+    "backend": "node server/index.js", 
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\""
   },
   "author": "Robert Fronczak",
   "license": "ISC",
@@ -17,10 +18,14 @@
     "bcrypt": "^4.0.1",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
+    "concurrently": "^5.2.0",
     "cookie-parser": "^1.4.5",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "moment": "^2.25.3",
     "mongoose": "^5.4.20"
+  },
+  "devDependencies": {
+    "http-proxy-middleware": "^1.0.4"
   }
 }
