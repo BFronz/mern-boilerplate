@@ -1,5 +1,5 @@
 # MERN Boilerplate
-Reuseable MERN template   
+Reuseable MERN template. Work in progress.   
 
 ### Installing
 
