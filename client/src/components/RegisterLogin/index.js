@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-// import { response } from 'express';
 import { loginUser } from '../../_actions/user_actions'
+import { Link } from 'react-router-dom';
 
 
 
@@ -83,12 +83,6 @@ class RegisterLogin extends Component {
                 </div>  
 
 
-                    {this.state.errors.length  > 0 && (
-                           <div>
-                               {this.displayErrors(this.state.errors)}
-                            </div>
-
-                    ) }
 
 
                     <div className="row">
@@ -109,16 +103,41 @@ class RegisterLogin extends Component {
                     </div>  
 
 
+            
+                    {this.state.errors.length  > 0 && (
+                           <div>
+                               {this.displayErrors(this.state.errors)}
+                            </div>
+
+                    ) }        
+
+
                 <div className="row">
-                    <div className="col 12">
+                    <div className="col s12">
                       <button className="btn waves-effect red loghten"
                         type="submit"
                         name ="action"
                         onClick= {this.submitForm}
                       >
                             Log in
-                      </button>      
+                      </button>   
+                        &nbsp; &nbsp;
+                      <Link to="/register">
+                      <button className="btn waves-effect red loghten"
+                        type="submit"
+                        name ="action"
+                      >
+                            Sign Up
+                      </button>     
+                      </Link> 
+
                     </div>
+
+                    
+
+
+
+
                 </div>
 
                     

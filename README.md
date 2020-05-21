@@ -32,6 +32,14 @@ Runs on Heroku:  https://fierce-everglades-90432.herokuapp.com/
 
 
 
+## Credits
+JavaScript Mastery:  <a href="https://www.youtube.com/channel/UCFyXA9x8lpL3EYWeYhj4C4Q" target="_blank">John Ahn</a>
+
+
+
+
+
+
 
 
 
