@@ -7,12 +7,11 @@ const cookieParser =  require('cookie-parser');
 const { User } = require('./models/user');
 const { auth } = require("./middleware/auth")
 
-const DOMAIN_TLD = 'http://localhost:3000';
 
+const DOMAIN_TLD = 'http://localhost:3000';
 
 const config = require('./config/key');
 
-const DOMAIN_TLD = 'http://localhost:3000';
 
 mongoose.connect(config.mongoURI, 
 { useNewUrlParser: true , useUnifiedTopology: true  } )

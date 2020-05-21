@@ -35,9 +35,20 @@ class RegisterLogin extends Component {
             this.setState( { errors: [] } )
                 this.props.dispatch(loginUser(dataToSubmit))
                 .then(response => {
-                    console.log(response);
-                } )
+                    // console.log(response);
 
+                    if(response.payload.loginSuccess) {
+                           this.props.history.push('/'); 
+                    } else {
+                        this.setState({
+                            errors: this.state.errors.concat("Login Failed. Please check email and password.")
+                        });                        
+                    }
+                })
+        } else{
+            this.setState({
+                errors: this.state.errors.concat("Login Failed. Please fill out form.")
+            }); 
 
         }
     }
@@ -72,7 +83,7 @@ class RegisterLogin extends Component {
                 </div>  
 
 
-                    {this.state.errors.length  > 1 && (
+                    {this.state.errors.length  > 0 && (
                            <div>
                                {this.displayErrors(this.state.errors)}
                             </div>
